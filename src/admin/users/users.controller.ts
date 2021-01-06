@@ -3,6 +3,7 @@ import {
   Get,
   Post,
   Body,
+  Query,
   Put,
   Param,
   Delete,
@@ -10,6 +11,8 @@ import {
 } from '@nestjs/common';
 import { Response } from 'express';
 import { UsersService } from './users.service';
+
+import { FilterUsersDTO } from './dto/filter-users.dto';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 
@@ -30,9 +33,8 @@ export class UsersController {
   }
 
   @Get()
-  findAll() {
-    console.log('findAll');
-    return this.usersService.findAll();
+  findAll(@Query() query: FilterUsersDTO) {
+    return this.usersService.findAll(query);
   }
 
   @Get(':id')
