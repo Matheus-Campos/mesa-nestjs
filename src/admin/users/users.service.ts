@@ -28,11 +28,11 @@ export class UsersService {
 
   async update(id: number, updateUserDto: UpdateUserDto) {
     const user = await this.usersRepository.findOneOrFail(id);
-    await this.usersRepository.update(user, updateUserDto);
-    return this.usersRepository.findOneOrFail(id);
+    this.usersRepository.merge(user, updateUserDto);
+    return this.usersRepository.save(user);
   }
 
-  remove(id: number) {
-    this.usersRepository.softRemove({ id });
+  async remove(id: number) {
+    await this.usersRepository.softRemove({ id });
   }
 }
