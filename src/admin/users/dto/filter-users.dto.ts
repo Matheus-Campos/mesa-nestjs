@@ -3,13 +3,13 @@ import { IsString, IsOptional, IsNumberString } from 'class-validator';
 export class FilterUsersDTO {
   @IsOptional()
   @IsString()
-  name: string;
+  name?: string;
 
   @IsOptional()
   @IsNumberString()
-  page: number;
+  page?: number;
 
   @IsOptional()
   @IsNumberString()
-  perPage: number;
+  perPage?: number;
 }

@@ -19,7 +19,7 @@ export class UsersService {
     return user;
   }
 
-  async findAll(filterUsersDto: FilterUsersDTO) {
+  async findAll(filterUsersDto?: FilterUsersDTO) {
     const PER_PAGE_DEFAULT = 20;
     const where: FindConditions<User> = {};
     const filters: FindManyOptions<User> = {
