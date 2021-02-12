@@ -106,6 +106,7 @@ $ npm run test:cov
 Como o nestjs é bem modular, ele não tem ORM próprio e o desenvolvedor deve instalar e configurar o ORM desejado, que nesse caso foi o TypeORM, já que ele tem uma interface similar ao do próprio nestjs, trabalhando com decorators também.
 
 Para criar uma migration: `$ ./node_modules/typeorm/cli.js migration:create -n exemplo`
+
 Para gerar uma migration a partir de mudanças feitas diretamente no banco: `$ ./node_modules/typeorm/cli.js migration:generate -n exemplo`
 
 Essas migrations vão ser criadas no diretório `migrations` na raíz do projeto.
